@@ -1,8 +1,11 @@
+#pragma once
 #include <vector>
 #include <stdexcept>
 
 struct IGraph {
   virtual ~IGraph() = default;
+
+  virtual IGraph& operator = (const IGraph&) final = delete;
 
   virtual void AddEdge(size_t from, size_t to) = 0;
   virtual size_t VerticesCount() const noexcept = 0;

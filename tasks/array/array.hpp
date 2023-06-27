@@ -1,28 +1,64 @@
+#pragma once
 #include <stdexcept>
 
 template <typename T, int N>
 class Array {
- public:
-  Array() = default;
+public:
+    Array() = default;
 
-  Array(std::initializer_list<T> lst) {  // Do not touch.
-    std::copy(lst.begin(), lst.end(), arr_);
-  }
+    Array(std::initializer_list<T> lst) {  // Do not touch.
+        std::copy(lst.begin(), lst.end(), arr_);
+    }
 
-  T& Front();
+    T& Front() {
+        return arr_[0];
+    }
 
-  T& Back();
+    const T& Front() const {
+        return arr_[0];
+    }
 
-  int Size();
+    T& Back() {
+        return arr_[N - 1];
+    }
 
-  bool Empty();
+    const T& Back() const {
+        return arr_[N - 1];
+    }
 
-  T* Data();
+    int Size() const {
+        return N;
+    }
 
-  T& operator[](int i);
+    bool Empty() const {
+        return N == 0;
+    }
 
-  void Swap(Array<T, N>& cur);
+    T* Data() {
+        return arr_;
+    }
 
- private:
-  T arr_[N];
+    const T* Data() const {
+        return arr_;
+    }
+
+    T& operator[](int i) {
+        return arr_[i];
+    }
+
+    const T& operator[](int i) const {
+        return arr_[i];
+    }
+
+    void Swap(Array<T, N>& cur) {
+        T temp = 0;
+        for (size_t i = 0; i < N; ++i) {
+            temp = arr_[i];
+            arr_[i] = cur.arr_[i];
+            cur.arr_[i] = temp;
+        }
+    }
+
+private:
+    T arr_[N];
 };

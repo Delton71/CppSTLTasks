@@ -1,9 +1,8 @@
-
+#pragma once
 #include "complex.hpp"
 #include <cmath>
 
-/*
-???  Abs(??? number) {
-  return number > 0 ? number : -number;
+template <typename T>
+T Abs(const T& number) {
+  return (number > 0)? number : -number;
 }
-*/

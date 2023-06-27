@@ -317,8 +317,8 @@ TEST_CASE("Comparisons", "[String]") {
 
     const String lhs = std::get<0>(test_data);
     const String rhs = std::get<1>(test_data);
-    REQUIRE((lhs <=> rhs) < 0);
-    REQUIRE((rhs <=> lhs) > 0);
+    REQUIRE(((lhs <=> rhs) < 0));
+    REQUIRE(((rhs <=> lhs) > 0));
     /*The same as:
       REQUIRE_FALSE(lhs == rhs);
       REQUIRE(lhs <= rhs);
@@ -336,7 +336,7 @@ TEST_CASE("Comparisons", "[String]") {
 
     const String lhs = std::get<0>(test_data);
     const String rhs = std::get<1>(test_data);
-    REQUIRE((lhs <=> rhs) == 0);
+    REQUIRE(((lhs <=> rhs) == 0));
     /*The same as:
       REQUIRE(lhs == rhs);
       REQUIRE(lhs <= rhs);

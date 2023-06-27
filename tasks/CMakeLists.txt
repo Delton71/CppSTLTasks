@@ -7,5 +7,6 @@ add_subdirectory(complex)
 add_subdirectory(graph)
 add_subdirectory(shared_pointer)
 add_subdirectory(string)
+add_subdirectory(tuple)
 add_subdirectory(unique_pointer)
 
